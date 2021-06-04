@@ -1,6 +1,6 @@
 # InstagramDL
 
-> Download Instagram images, and stories simply
+> Download Instagram posts and stories simply
 
 ## Disclaimer
 
@@ -26,7 +26,7 @@ It will download all contents from [here](https://instagram.com/yoo__sha).
 
 ### Download story from a user
 ```bash
-python3 . --story yoo__sha
+python3 . --user yoo__sha --stories
 ```
 
 A chrome tab will be opened. Login with your IG account. (**It doesn't take your credentials**)
@@ -44,3 +44,14 @@ A chrome tab will be opened. Login with your IG account. (**It doesn't take your
 - Mac mini (M1, 2020)
   - Python 3.9.4 arm64
   - macOS Big Sur 11.5 beta 2 (20G5033c)
+
+
+## Contributing
+
+PR or make a issue
+
+### Code style
+
+* black + isort
+* Class names as `Pascal`
+* Variable and function names as `snake`
