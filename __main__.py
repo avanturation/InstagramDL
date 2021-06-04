@@ -30,7 +30,7 @@ if __name__ == "__main__":
         )
         exit()
 
-    user_id, story_dl, post = None, None, None
+    user_id, story_dl, post = None, False, None
 
     if options.user_id:
         user_id = options.user_id
