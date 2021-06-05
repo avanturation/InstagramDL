@@ -2,7 +2,7 @@ import sys
 import logging
 import asyncio
 from utils import Logger
-from api import Requester
+from igdl import IGDL
 from cli import header, option_parser
 
 if __name__ == "__main__":
@@ -49,5 +49,13 @@ if __name__ == "__main__":
         f"Passed Arguments\nPost: {post}\nUser ID: {user_id}\nStory Download: {story_dl}"
     )
 
-    req = Requester()
-    asyncio.run(req.login(user=options.user_login, passwd=options.passwd))
+    igdl = IGDL(
+        post=post,
+        target=user_id,
+        story=story_dl,
+        login=options.user_login,
+        passwd=options.passwd,
+    )
+
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(igdl.start())
