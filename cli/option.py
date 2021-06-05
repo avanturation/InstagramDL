@@ -29,6 +29,22 @@ def option_parser():
     )
 
     parser.add_option(
+        "--login",
+        help="your instagram id",
+        dest="user_login",
+        default=None,
+        type=str,
+    )
+
+    parser.add_option(
+        "--pw",
+        help="your instagram password",
+        dest="passwd",
+        default=None,
+        type=str,
+    )
+
+    parser.add_option(
         "--stories",
         help="download stories but not posts",
         action="store_true",

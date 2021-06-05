@@ -1,7 +1,8 @@
 import sys
 import logging
-
+import asyncio
 from utils import Logger
+from api import Requester
 from cli import header, option_parser
 
 if __name__ == "__main__":
@@ -47,3 +48,6 @@ if __name__ == "__main__":
     logger.debug(
         f"Passed Arguments\nPost: {post}\nUser ID: {user_id}\nStory Download: {story_dl}"
     )
+
+    req = Requester()
+    asyncio.run(req.login(user=options.user_login, passwd=options.passwd))
