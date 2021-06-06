@@ -1,9 +1,8 @@
-from typing import Any, Literal, Optional
-import aiohttp
 import asyncio
 import random
-
 from datetime import datetime
+from http.cookies import SimpleCookie
+from typing import Any, Optional
 
 from aiohttp.client import ClientSession
 from utils import Logger
@@ -129,16 +128,32 @@ class Authenticator(BaseReq):
         self.logger.info("Authentication Successful!")
         return ajax_resp.cookies
 
+    def convert_dict(self, cookie: SimpleCookie):
+        _cookies = DEFAULT_COOKIE
+
+        for key, morsel in cookie.items():
+            _cookies[key] = morsel.value
+
+        return _cookies
+
     async def login(self, user: str, passwd: str):
         try:
             csrf_token = await self.get_csfr()
+
             self.logger.info(
                 "Sleeping for a few seconds to avoid Instagram from blocking your IP."
             )
             await asyncio.sleep(min(random.expovariate(0.6), 15.0))
             final_cookies = await self.ajax(user, passwd)
 
-            return final_cookies
+            return self.convert_dict(final_cookies)
 
         finally:
             await self.session.close()
+
+
+class GraphQL(BaseReq):
+    def __init__(self, cookies) -> None:
+        self.headers = DEFAULT_HEADER
+        self.cookies = cookies
+        super().__init__()

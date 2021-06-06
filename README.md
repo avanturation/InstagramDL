@@ -10,26 +10,32 @@ We do not have responsibiliy for you to download explict, harmful things.
 
 ## Usage
 
+InstagramDL requires your instagram account to authenticate with Instagram server.
+
+It will be used only in grabbing cookies, which is used in querying Instagram GraphQL API.
+
+**We do not take your credentials, and honestly we do not want to know about.**
+
 ### Download only a post
 ```bash
-python3 . --post CPkgc--NkhZ
+python3 . --post CPkgc--NkhZ --login <YOUR_ID> --pw <YOUR_PW>
 ```
 
 It will download contents from [here](https://www.instagram.com/p/CPkgc--NkhZ/).
 
 ### Download all posts from a user
 ```bash
-python3 . --user yoo__sha
+python3 . --user yoo__sha --login <YOUR_ID> --pw <YOUR_PW>
 ```
 
 It will download all contents from [here](https://instagram.com/yoo__sha).
 
 ### Download story from a user
 ```bash
-python3 . --user yoo__sha --stories
+python3 . --user yoo__sha --stories --login <YOUR_ID> --pw <YOUR_PW>
 ```
 
-A chrome tab will be opened. Login with your IG account. (**It doesn't take your credentials**)
+It will download stories from [here](https://instagram.com/yoo__sha).
 
 ### Options
 

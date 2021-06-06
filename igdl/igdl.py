@@ -1,4 +1,5 @@
 from typing import Optional
+
 from api import Authenticator
 from utils import Logger
 
