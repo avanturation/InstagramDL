@@ -14,7 +14,7 @@ InstagramDL requires your instagram account to authenticate with Instagram serve
 
 It will be used only in grabbing cookies, which is used in querying Instagram GraphQL API.
 
-**We do not take your credentials, and honestly we do not want to know about.**
+**We do not take your credentials, and honestly we do not want to know.**
 
 ### Download only a post
 ```bash

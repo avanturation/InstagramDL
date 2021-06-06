@@ -1,3 +1,4 @@
-from .request import Authenticator
+from .auth import Authenticator
+from .profile import Profile
 
-__all__ = ["Authenticator"]
+__all__ = ["Authenticator", "Profile"]

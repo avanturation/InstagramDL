@@ -1,6 +1,6 @@
 from typing import Optional
 
-from api import Authenticator
+from api import Authenticator, Profile
 from utils import Logger
 
 
@@ -31,6 +31,9 @@ class IGDL:
 
     async def download_user(self):
         auth = await self.authenticate()
+        fetcher = Profile(auth_data=auth, user_id=self.target)
+
+        await fetcher.download(self.story)
 
     async def start(self):
         if self.post:
