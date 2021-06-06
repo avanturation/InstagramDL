@@ -1,5 +1,5 @@
 from typing import Optional
-from api import Requester
+from api import Authenticator
 from utils import Logger
 
 
@@ -18,8 +18,8 @@ class IGDL:
         self.login = login
         self.passwd = passwd
         self.cookies = {}
-        self.request = Requester()
-        self.logger = Logger("Downloader")
+        self.request = Authenticator()
+        self.logger = Logger.generate("Downloader")
 
     async def authenticate(self):
         cookies = await self.request.login(user=self.login, passwd=self.passwd)

@@ -1,3 +1,3 @@
-from .request import Requester
+from .request import Authenticator
 
-__all__ = ["Requester"]
+__all__ = ["Authenticator"]
