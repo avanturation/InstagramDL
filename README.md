@@ -45,11 +45,11 @@ It will download stories from [here](https://instagram.com/yoo__sha).
 
 - MacBook Pro (15-inch, 2018)
   - Python 3.9.4 64-bit
-  - macOS Big Sur 11.3.1
+  - macOS 12 Monterey
 
 - Mac mini (M1, 2020)
   - Python 3.9.4 arm64
-  - macOS Big Sur 11.5 beta 2 (20G5033c)
+  - macOS 12 Monterey
 
 
 ## Contributing
