@@ -5,8 +5,12 @@ from typing import Dict, Optional
 from .request import DEFAULT_COOKIE, DEFAULT_HEADER, ROOT, BaseReq
 from .graphql import GraphQL
 
-QUERY_HASH = "02e14f6a7812a876f7d133c9555b1151"
-PROFILE_HASH = "d4d88dc1500312af6f937f7b804c68c3"
+HASHES = {
+    "default": "02e14f6a7812a876f7d133c9555b1151",
+    "stories": "d15efd8c0c5b23f0ef71f18bf363c704",
+    "reels": "303a4ae99711322310f25250d988f3b7",
+    "profile": "d4d88dc1500312af6f937f7b804c68c3",
+}
 
 
 class Profile(GraphQL):
@@ -31,6 +35,7 @@ class Profile(GraphQL):
         return self.metadata
 
     async def stories(self):
+
         # if not self.metadata["has_clips"]:
         #   self.logger.error(
         #        f"User {self.metadata['full_name']} ({self.metadata['username']}) does not have any stories uploaded. Aborting"
