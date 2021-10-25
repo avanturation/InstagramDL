@@ -45,11 +45,26 @@ class Authenticator(BaseReq):
         data = await ajax_resp.json(encoding="utf-8")
 
         if "two_factor_required" in data:
-            self.logger.error("Two-Factor authentication requireed. Aborting")
-            exit()
+            self.logger.info("Two-Factor authentication requireed.")
+            code = input("Enter your two factor code: ")
+
+            payload = {
+                "username": user,
+                "verificationCode": f"{code}",
+                "identifier": f"{ajax_resp['two_factor_info']['two_factor_identifier']}",
+            }
+
+            ajax_resp = await self.post(
+                ROOT + "/accounts/login/ajax/two_factor/",
+                data=payload,
+                allow_redirects=True,
+                headers=self.headers,
+            )
 
         if "checkpoint_url" in data:
-            self.logger.error("Instagram needs your confirmation. Aborting")
+            self.logger.error(
+                "Instagram needs your confirmation. Follow the instructions and try again. Aborting"
+            )
             exit()
 
         if data["status"] != "ok" or "authenticated" not in data:

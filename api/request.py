@@ -44,13 +44,7 @@ class BaseReq:
 
         resp = await self.session.request(method, url, **kwargs)
 
-        if resp.status == 200:
-            return resp
-
-        else:
-            self.logger.debug(f"{url} returned status {resp.status}.")
-            self.logger.error("Unexpected Error. Aborting")
-            exit()
+        return resp
 
     async def post(self, url: str, **kwargs: Any):
         if not self.session or self.session.closed:
